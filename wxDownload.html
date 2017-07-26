@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>快快贷理财</title>
+<style>
+body {  background-color: #f0f0f0;  -webkit-font-smoothing: antialiased;  text-rendering: optimizeLegibility;  font: 16px/1.5 helvetica, arial, sans-serif;  }
+p {  padding: 15px;  background-color: white;  margin: 30px 10px;  box-shadow: 1px 1px 3px rgba(0, 0, 0, .1);  }
+.arrow {  width: 20px;  height: 38px;  float: right;  margin-right: 8px;  margin-top: -24px;  }
+</style>
+</head>
+<body>
+<img class="arrow" src="${resource_url}/images/download_arrow.png"/>
+<p>请点击右上角按钮，然后在弹出窗口里选择“在<span id="browser">Safari</span>中打开”，即可下载。</p>
+</body>
+<script>
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]); return null; //返回参数值
+    }
+    //下载app
+    (function () {
+        var UA = window.navigator.userAgent;
+        //终端
+        var os = {
+            'android': UA.match(/(Android);?[\s\/]+([\d.]+)?/),
+            'iphone': UA.match(/(iPhone\sOS)\s([\d_]+)/)
+        };
+        if(os.iphone){
+            //window.location.href  = "kkdApp://";
+            var ifr = document.createElement('iframe');
+            ifr.src = 'kkdApp://';//打开app的协议
+            ifr.style.display = 'none';
+            document.body.appendChild(ifr);
+            window.setTimeout(function(){
+                document.body.removeChild(ifr);
+                window.location.href="itms-apps://itunes.apple.com/app/id938522778";
+            },2000);
+        }else if(os.android){
+            var fromUrl = getUrlParam("fromUrl");
+            document.getElementById('browser').innerHTML = '浏览器';
+            //使用框架打开app，避免找不到网页
+            var ifr = document.createElement('iframe');
+            ifr.src = 'kkdapp://splash';//打开app的协议
+            ifr.style.display = 'none';
+            document.body.appendChild(ifr);
+            window.setTimeout(function(){
+                document.body.removeChild(ifr);
+                if(fromUrl=="activity"){
+                    window.location.href="http://image.kuaikuaidai.com/apk/android/kuaikuaidai_wltg1.apk";
+                }else{
+                    window.location.href="http://image.kuaikuaidai.com/apk/android/kuaikuaidai.apk";
+                }
+            },2000);
+        }else{
+            window.location.href="http://www.kuaikuaidai.com/";
+        }
+    })();
+</script>
+</html>
