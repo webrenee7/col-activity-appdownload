@@ -1,7 +1,10 @@
 > 以下下载功能实现需要服务端和客户端配合完成，此处只是前端代码实现部分
 
-## 需要从后台代入的值
+## html
 ```html
+<a href="javascript:;" id="lookBtn" class="downloadBtn">立即查看</a>
+<a href="javascript:;" id="bidBtn" class="downloadBtn">立即投标</a>
+<!--需要后台代入的值-->
 <input type="hidden" id="customerId" value="${customerId}" />
 <input type="hidden" id="token" value="${token}" />
 <input type="hidden" id="channel" value="${channel}" />
