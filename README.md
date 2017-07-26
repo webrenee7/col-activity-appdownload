@@ -1,4 +1,4 @@
-> 以下下载功能实现需要服务端和客户端配合完成
+> 以下下载功能实现需要服务端和客户端配合完成，此处只是前端代码实现部分
 
 ## 需要从后台代入的值
 ```html
@@ -108,7 +108,7 @@ $(".downloadBtn").click(function(){
 ## Tips
 1、微信不能直接下载或打开app
 可以通过以下两种方式进行下载或打开app
-- 提示用户到浏览器中打开或者下载
+- 提示用户到浏览器中打开或者下载（wxDownload.html）
 - 通过腾讯应用宝传入要下载的app
 快快贷理财：http://a.app.qq.com/o/simple.jsp?pkgname=com.kkd.kkdapp
 
